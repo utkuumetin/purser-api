@@ -19,6 +19,6 @@ describe('Health (e2e)', () => {
     return request(app.getHttpServer())
       .get('/health')
       .expect(200)
-      .expect({ health: "OK" });
+      .expect({ health: 'OK' });
   });
 });
