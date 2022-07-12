@@ -53,4 +53,11 @@ export class AuthService {
 
     return { access_token: token };
   }
+
+  validateToken(token: string) {
+    const cleanToken = token.replace('Bearer', '').trim();
+    return this.jwt.verify(cleanToken, {
+      publicKey: this.config.get('JWT_SECRET'),
+    });
+  }
 }
